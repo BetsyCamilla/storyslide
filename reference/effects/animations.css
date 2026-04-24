@@ -1,0 +1,36 @@
+/**
+ * animations.css — 入场动画 + 打字动画 + 过场动画
+ */
+
+/* 入场渐入 */
+.anim-fade-up {
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.anim-scale {
+  opacity: 0; transform: scale(0.9);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* 打字动画（max-width 渐显，无光标） */
+.closing-question {
+  text-align: center;
+}
+.closing-question span {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 2.5s steps(30, end) forwards;
+  max-width: 0;
+  animation-delay: 0.5s;
+}
+@keyframes typing {
+  from { max-width: 0; }
+  to { max-width: 100%; }
+}
+
+/* 过场 fade out（可选，由 JS 注入） */
+.fade-out {
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}

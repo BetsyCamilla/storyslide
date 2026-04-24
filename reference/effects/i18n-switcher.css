@@ -1,0 +1,18 @@
+/**
+ * i18n-switcher.css — 中英切换按钮样式
+ */
+
+.lang-wrap {
+  position: fixed; top: 1rem; right: 1rem;
+  z-index: 999999; display: flex; gap: 0.25rem;
+}
+.lang-btn {
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: clamp(0.65rem, 1vw, 0.75rem);
+  cursor: pointer; transition: all 0.2s ease;
+  backdrop-filter: blur(2px);
+}
+.lang-btn.active {
+  font-weight: 600;
+}

@@ -1,0 +1,38 @@
+/**
+ * hover-effects.css — hover 放大 + 布灵光晕扫过
+ * 所有可交互卡片统一使用
+ */
+
+/* Hover 放大 */
+.clickable,
+.grid-card, .ev-card, .conclusion-item,
+.tl-item, .tech-card {
+  cursor: pointer;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  position: relative; overflow: hidden;
+}
+.clickable:hover,
+.grid-card:hover, .ev-card:hover,
+.conclusion-item:hover, .tl-item:hover,
+.tech-card:hover {
+  transform: scale(1.02);
+}
+
+/* 布灵光晕扫过 */
+.clickable::after,
+.grid-card::after, .ev-card::after,
+.tl-item::after {
+  content: '';
+  position: absolute; top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(
+    90deg, transparent, var(--hover-glow, rgba(167,139,250,0.06)), transparent
+  );
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+.clickable:hover::after,
+.grid-card:hover::after, .ev-card:hover::after,
+.tl-item:hover::after {
+  left: 100%;
+}

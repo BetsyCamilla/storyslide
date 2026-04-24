@@ -1,0 +1,49 @@
+/**
+ * flip-system.css — 翻页系统
+ * 包含翻页按钮、页码指示器、交互提示条
+ */
+
+/* 翻页按钮 */
+.nav-btn {
+  position: fixed; top: 50%; transform: translateY(-50%);
+  z-index: 99999; width: 44px; height: 44px;
+  border-radius: 50%; font-size: 1.3rem;
+  cursor: pointer; display: flex; align-items: center;
+  justify-content: center; user-select: none;
+  transition: all 0.2s ease; backdrop-filter: blur(4px);
+}
+.nav-prev { left: 0.8rem; }
+.nav-next { right: 0.8rem; }
+@media (max-width: 600px) {
+  .nav-btn { width: 36px; height: 36px; font-size: 1.1rem; }
+}
+
+/* 页码指示器 */
+.page-indicator {
+  position: fixed; bottom: 1.5rem; left: 50%;
+  transform: translateX(-50%); z-index: 99999;
+  display: flex; gap: 0.4rem; align-items: center;
+}
+.page-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  transition: all 0.2s ease;
+}
+.page-dot.active {
+  width: 20px; border-radius: 3px;
+}
+.page-num {
+  font-size: clamp(0.55rem, 1vw, 0.65rem);
+  margin: 0 0.3rem;
+}
+
+/* 交互提示条 */
+.interaction-hint {
+  position: fixed; bottom: 3.5rem; left: 50%;
+  transform: translateX(-50%); z-index: 99998;
+  font-size: clamp(0.55rem, 1vw, 0.65rem);
+  text-align: center; pointer-events: none;
+  white-space: nowrap;
+  animation: fadeHint 5s ease forwards;
+  animation-delay: 4s;
+}
+@keyframes fadeHint { 0% { opacity: 1; } 100% { opacity: 0; } }
